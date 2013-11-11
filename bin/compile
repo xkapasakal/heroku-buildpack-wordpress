@@ -51,7 +51,7 @@ cd ${BUILD_DIR}
 if [ ! -d ./vendor/nginx ]; then
   echo "-----> Installing Nginx v${NGINX_VERSION}"
   mkdir -p ./vendor/nginx && cd ./vendor/nginx
-  curl --silent --max-time 60 --location $NGINX_URL | tar xz
+  curl --silent --max-time 180 --location $NGINX_URL | tar xz
 fi
 
 # PHP
@@ -59,13 +59,13 @@ cd ${BUILD_DIR}
 if [ ! -d ./vendor/php ]; then
   echo "-----> Installing PHP v${PHP_VERSION}"
   mkdir -p ./vendor/php && cd ./vendor/php
-  curl --silent --max-time 60 --location $PHP_URL | tar xz
+  curl --silent --max-time 180 --location $PHP_URL | tar xz
 fi
 
 # Wordpress
 echo "-----> Installing Wordpress v${WORDPRESS_VERSION}"
 cd ${BUILD_DIR}
-curl --silent --max-time 60 --location $WORDPRESS_URL | tar xz
+curl --silent --max-time 180 --location $WORDPRESS_URL | tar xz
 mv wordpress public
 
 echo "-----> Writing start.sh script"
